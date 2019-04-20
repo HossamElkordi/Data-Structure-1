@@ -87,7 +87,7 @@ public class sLinkedList implements ILinkedList{
 	}
 	
 	public boolean isEmpty() {
-		return (head == null &&  head.next == null);
+		return (head == null);
 	}
 	
 	public void remove(int index) {
@@ -113,6 +113,9 @@ public class sLinkedList implements ILinkedList{
 	}
 	
 	public int size() {
+		if (head == null) {
+			return 0;
+		}
 		int size = 1;
 		sNode n = head;
 		while (n.next != null) {
