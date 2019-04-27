@@ -30,7 +30,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator{
 				t.push((char)ch);
 				continue;
 			}
-			if ((ch == '+' || ch == '-') && expression.charAt(i+1) == ' ') {
+			if (ch == '+' || (ch == '-') && expression.charAt(i+1) == ' ') {
 				while (!t.isEmpty() && (char)t.peek() != '(') {
 					str.append((char)t.pop()); str.append(' ');
 				}
@@ -38,7 +38,8 @@ public class ExpressionEvaluator implements IExpressionEvaluator{
 				continue;
 			}
 			int j = i;
-			while (expression.charAt(j) != ' ' && expression.charAt(j) != ')') {
+			while (expression.charAt(j) != ' ' && expression.charAt(j) != ')'
+					&& expression.charAt(j) != '+'&& expression.charAt(j) != '*'&& expression.charAt(j) != '/') {
 				j++;
 				if (j == len) { break; }
 			}
